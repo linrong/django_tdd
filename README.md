@@ -70,4 +70,9 @@ python manage.py migrate
 # 运行
 python manage.py runserver
 
+# 测试单个
+python manage.py test test1
+
+# 测试全部
+python manage.py test
 ```

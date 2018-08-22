@@ -2,7 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import unittest
 from django.test import LiveServerTestCase 
-
+# 功能测试使用LiveServerTestCase实现隔离，django会自动创建测试数据库而不用和之前一样测试数据不隔离
+# 不使用真正的数据库，不使用之前的unittest.TestCase
 class NewVisitorTest(LiveServerTestCase):
     def setUp(self):
         self.browser=webdriver.Chrome()
