@@ -26,7 +26,7 @@ deactivate.bat
 pip install virtualenvwrapper-win
 
 # 设置环境变量
-环境变量中在新增WORK_HOME并且赋值路径E:\virtualenv
+环境变量中在新增WORK_HOME并且赋值路径E:\virtualenv，并需要重启生效
 
 # 新建虚拟环境,默认安装在环境变量的目录下
 mkvirtualenv django
@@ -44,6 +44,7 @@ deactivate
 ```
 # 冻结环境,安装包列表保存到文件packages.txt中,
 pip freeze >packages.txt　　
+
 # 重建环境,在生产环境安装好对应版本的软件包，不要出现版本兼容等问题
 pip install -r packages.txt
 ```
