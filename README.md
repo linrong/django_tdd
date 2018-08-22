@@ -48,3 +48,8 @@ pip freeze >packages.txt　　
 # 重建环境,在生产环境安装好对应版本的软件包，不要出现版本兼容等问题
 pip install -r packages.txt
 ```
+* 安装django和selenium
+```
+pip install django
+pip install selenium
+```
