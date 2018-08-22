@@ -53,3 +53,21 @@ pip install -r packages.txt
 pip install django
 pip install selenium
 ```
+* django
+```
+# 创建django项目
+django-admin startproject DjangoTest
+
+# 进入DjangoTest，创建app
+python manage.py startapp test1
+
+# setting 添加app
+
+# 数据库处理
+python manage.py makemigrations
+python manage.py migrate
+
+# 运行
+python manage.py runserver
+
+```
