@@ -26,7 +26,7 @@ deactivate.bat
 pip install virtualenvwrapper-win
 
 # 设置环境变量
-环境变量中在新增WORK_HOME并且赋值路径~django\Scripts
+环境变量中在新增WORK_HOME并且赋值路径E:\virtualenv
 
 # 新建虚拟环境,默认安装在环境变量的目录下
 mkvirtualenv django
