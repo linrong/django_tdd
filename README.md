@@ -52,6 +52,7 @@ pip install -r packages.txt
 ```
 pip install django
 pip install selenium
+# selenium中使用google浏览器需要下载chromedriver.exe
 ```
 * django
 ```
