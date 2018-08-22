@@ -22,7 +22,7 @@ deactivate.bat
 ```
 * 使用virtualenvwrapper辅助开发
 ```
-# 一般安装virtualenv时也默认安装了，如果没有安装手动安装
+# 手动安装
 pip install virtualenvwrapper-win
 
 # 设置环境变量
@@ -39,4 +39,11 @@ workon django
 
 # 退出虚拟环境
 deactivate
+```
+* python环境
+```
+# 冻结环境,安装包列表保存到文件packages.txt中,
+pip freeze >packages.txt　　
+# 重建环境,在生产环境安装好对应版本的软件包，不要出现版本兼容等问题
+pip install -r packages.txt
 ```
