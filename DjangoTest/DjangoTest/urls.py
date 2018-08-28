@@ -20,6 +20,6 @@ from test1 import views as list_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',list_view.home_page,name='home'),	
-    path('lists/the-only-list-in-the-world/',list_view.view_list,name='view_list'),
-    path('lists/new',list_view.new_list,name='new_list')
+    path('lists/<int:list_id>/',list_view.view_list,name='view_list'),
+    path('lists/new',list_view.new_list,name='new_list'),
 ]
