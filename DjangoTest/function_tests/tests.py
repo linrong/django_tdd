@@ -66,3 +66,16 @@ class NewVisitorTest(LiveServerTestCase):
         self.assertNotIn('Buy peacock feathers',page_text)
         self.assertIn('Buy milk',page_text)
         #self.fail('finish the test!')
+    
+    def test_layout_and_styling(self):
+        # a访问首页
+        self.browser.get(self.live_server_url)
+        self.browser.set_window_size(1024,768) # 设置查看固定大小
+
+        # 查看输入框是否据中
+        inputbox=self.browser.find_element_by_id('id_new_item')
+        self.assertAlmostEqual(
+            inputbox.location['x']+inputbox.size['width']/2,
+            512,
+            delta=10 # 误差正负5像素
+        )
