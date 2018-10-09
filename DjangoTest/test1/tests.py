@@ -15,7 +15,7 @@ class SmokeTest(TestCase):
         request =HttpRequest()
         response =home_page(request)
         self.assertTrue(response.content.startswith(b'<html>'))
-        self.assertIn(b'<title>To-Do lists</title>',response.content)
+        self.assertIn(b'<title>To-Do Lists</title>',response.content)
         self.assertTrue(response.content.endswith(b'</html>'))
                                 
       
@@ -79,7 +79,7 @@ class NewListTest(TestCase):
     
     def test_saving_a_POST_request(self):
         self.client.post(
-        '/lists/new',
+        '/lists/new/',
         data={'item_text':'A new list item'}
         )
         self.assertEqual(Item.objects.count(),1)
@@ -89,7 +89,7 @@ class NewListTest(TestCase):
         
     def test_redirects_after_POST(self):
         response=self.client.post(
-        '/lists/new',
+        '/lists/new/',
         data={'item_text':'A new list item'}
         )
         self.assertEqual(response.status_code,302)
