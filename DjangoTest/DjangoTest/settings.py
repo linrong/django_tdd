@@ -119,3 +119,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+# 把静态文件收集文件夹放在项目之外
+STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR,'../static'))
