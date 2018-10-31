@@ -108,4 +108,4 @@ database/*
 !database/.gitkeep
 
 static/*
-!static/*
+!static/.gitkeep
