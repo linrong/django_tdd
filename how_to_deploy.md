@@ -146,7 +146,8 @@ sudo start gunicorn-django
 #### 自动化部署
 ```
 # 全局安装fabric,不使用virtualenv
-sudo pip install fabric
-# 编写代码
+sudo pip install fabric3
+# 编写代码,fabfile文件目录下执行
 fab deploy
+# 以上的运行可能错误，因为3的命令不同与2
 ```
