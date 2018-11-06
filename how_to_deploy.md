@@ -143,3 +143,10 @@ sudo touch /etc/init/gunicorn-django.conf
 # 编写脚本（setting目录中的gunicorn-django.conf）,然后运行(目前运行失败，没有start命令)
 sudo start gunicorn-django
 ```
+#### 自动化部署
+```
+# 全局安装fabric,不使用virtualenv
+sudo pip install fabric
+# 编写代码
+fab deploy
+```
