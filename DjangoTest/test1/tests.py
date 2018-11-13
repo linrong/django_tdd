@@ -4,6 +4,7 @@ from django.http import HttpRequest
 from django.template.loader import render_to_string
 from test1.views import home_page
 from test1.models import Item,List
+from unittest import skip
 
 # Create your tests here.
 class SmokeTest(TestCase):
@@ -121,3 +122,7 @@ class NewItemTest(TestCase):
         )
         
         self.assertRedirects(response,'/lists/%d/'%(correct_list.id,))
+        
+    @skip
+    def test_cannot_add_empty_list_items(self):
+        self.fail('write me!')
