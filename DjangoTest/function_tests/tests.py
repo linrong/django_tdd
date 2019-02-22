@@ -4,10 +4,7 @@ import unittest
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 import sys
 
-# 功能测试使用LiveServerTestCase实现隔离，django会自动创建测试数据库而不用和之前一样测试数据不隔离
-# 不使用真正的数据库，不使用之前的unittest.TestCase
-class NewVisitorTest(StaticLiveServerTestCase):
-    
+class FunctionalTest(StaticLiveServerTestCase):
     # use by python manage.py test function_test --liveserver=网址
     @classmethod
     def setUpClass(cls):
@@ -36,7 +33,10 @@ class NewVisitorTest(StaticLiveServerTestCase):
         rows=table.find_elements_by_tag_name('tr')
         self.assertIn(row_text,[row.text for row in rows])
         #print([row.text for row in rows])
-        
+
+# 功能测试使用LiveServerTestCase实现隔离，django会自动创建测试数据库而不用和之前一样测试数据不隔离
+# 不使用真正的数据库，不使用之前的unittest.TestCase
+class NewVisitorTest(FunctionalTest):
     def test_can_start_a_list_and_retrieve_it_later(self):
         #self.browser.get('http://127.0.0.1:8000/')
         #a访问网站
@@ -86,6 +86,7 @@ class NewVisitorTest(StaticLiveServerTestCase):
         self.assertIn('Buy milk',page_text)
         #self.fail('finish the test!')
     
+class LayoutAndStyingTest(FunctionalTest):
     def test_layout_and_styling(self):
         # a访问首页
         self.browser.get(self.server_url)
@@ -98,3 +99,8 @@ class NewVisitorTest(StaticLiveServerTestCase):
             512,
             delta=10 # 误差正负5像素
         )
+
+class ItemValidationTest(FunctionalTest):
+    @unittest.skip('reason')
+    def test_cannot_add_empty_list_items(self):
+        pass
