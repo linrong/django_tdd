@@ -36,6 +36,8 @@ class ListAndItemModelTest(TestCase):
         item =Item(list=list_,text='')
         with self.assertRaises(ValidationError):
             item.save()
+            # django的模型不会运行全部验证，使用下面的代码可以运行全部验证
+            item.full_clean()
         # with结合上下文管理器,包装一段代码,也可以写成:
         # try:
         #     item.save()
