@@ -6,18 +6,16 @@ from test1.views import home_page
 from test1.models import Item,List
 from unittest import skip
 from django.utils.html import escape
+from test1.forms import ItemForm
 # Create your tests here.
-class SmokeTest(TestCase):
-    def test_root_url_resolves_to_home_page_view(self):
-        found=resolve('/')
-        self.assertEqual(found.func,home_page)
+class HomePageTest(TestCase):
+    def test_home_page_renders_home_template(self):
+        response=self.client.get('/')
+        self.assertTemplateUsed(response,'home.html')
 
-    def test_home_page_returns_correct_html(self):
-        request =HttpRequest()
-        response =home_page(request)
-        self.assertTrue(response.content.startswith(b'<html>'))
-        self.assertIn(b'<title>To-Do Lists</title>',response.content)
-        self.assertTrue(response.content.endswith(b'</html>'))
+    def test_home_page_uses_item_form(self):
+        response=self.client.get('/')
+        self.assertIsInstance(response.context['form'],ItemForm)
         
 class ListViewTest(TestCase):
     def test_displays_only_items_for_that_list(self):

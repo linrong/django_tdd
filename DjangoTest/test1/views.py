@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from test1.models import Item,List
+from test1.forms import ItemForm
 from django.core.exceptions import ValidationError
 
 
@@ -30,7 +31,7 @@ def home_page(request):
     #    Item.objects.create(text=request.POST['item_text'])
     #    return redirect('/lists/the-only-list-in-the-world/')
     #items=Item.objects.all()
-    return render(request,'home.html')
+    return render(request,'home.html',{'form':ItemForm()})
 
 def new_list(request):
     list_=List.objects.create()
