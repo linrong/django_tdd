@@ -31,6 +31,9 @@ pip install virtualenvwrapper-win
 # 新建虚拟环境,默认安装在环境变量的目录下
 mkvirtualenv django
 
+# 删除虚拟环境
+rmvirtualenv django
+
 # 查看mkvirtualenv创建安装的所有虚拟环境
 workon
 
